@@ -4,7 +4,7 @@ export default function Header() {
     return (
         <header className="m-auto mt-3 w-6/12 flex justify-between items-center">
             <div>
-                <h1>Fernando Bersellini</h1>
+                <h1 className="text-2xl font-bold">Fernando Bersellini</h1>
             </div>
 
             <div className="flex gap-3 items-center">
