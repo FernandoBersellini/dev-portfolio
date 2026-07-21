@@ -26,7 +26,7 @@ export default function Hero() {
             {t.ctaProjects}
           </a>
           <a
-            href={CONTACT.cvUrl}
+            href={CONTACT.cvUrl[lang]}
             download
             className="rounded-lg border border-violet-400/40 px-6 py-3 text-center font-medium text-violet-200 transition-colors hover:bg-violet-500/10"
           >
