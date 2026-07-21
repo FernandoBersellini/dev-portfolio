@@ -71,7 +71,6 @@ export const PROJECTS: Record<Lang, Project[]> = {
         },
         { label: 'Acessar demo', href: 'https://todo-app-frontend-o3bc.vercel.app' },
       ],
-      placeholder: false,
     },
   ],
   en: [

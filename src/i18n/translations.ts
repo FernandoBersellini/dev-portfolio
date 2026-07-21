@@ -1,7 +1,12 @@
-import type { Lang } from '@/i18n/LanguageContext'
+import type { Lang } from '@/i18n/types'
 
 export const translations = {
   pt: {
+    meta: {
+      title: 'Fernando — Desenvolvedor Fullstack',
+      description:
+        'Fernando — Desenvolvedor Fullstack. TypeScript, React, Node.js, Java e Spring Boot.',
+    },
     nav: {
       about: 'Sobre',
       projects: 'Projetos',
@@ -86,6 +91,10 @@ export const translations = {
     },
   },
   en: {
+    meta: {
+      title: 'Fernando — Fullstack Developer',
+      description: 'Fernando — Fullstack Developer. TypeScript, React, Node.js, Java and Spring Boot.',
+    },
     nav: {
       about: 'About',
       projects: 'Projects',
