@@ -14,9 +14,16 @@ const STORAGE_KEY = 'portfolio-lang'
 
 const LanguageContext = createContext<LanguageContextValue | null>(null)
 
+function detectBrowserLang(): Lang {
+  const candidates = navigator.languages?.length ? navigator.languages : [navigator.language]
+  const isPortuguese = candidates.some((locale) => locale?.toLowerCase().startsWith('pt'))
+  return isPortuguese ? 'pt' : 'en'
+}
+
 function getInitialLang(): Lang {
   const stored = window.localStorage.getItem(STORAGE_KEY)
-  return stored === 'en' ? 'en' : 'pt'
+  if (stored === 'pt' || stored === 'en') return stored
+  return detectBrowserLang()
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {

@@ -1,75 +1,56 @@
-# React + TypeScript + Vite
+# Portfólio — Fernando Bersellini
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site de portfólio pessoal, SPA estática (sem backend), construído para facilitar a triagem rápida
+de recrutadores e gestores técnicos.
 
-Currently, two official plugins are available:
+**Stack:** React + Vite + TypeScript, Tailwind CSS v4, componentes Aceternity (fundo estrelado).
+**Deploy:** Vercel.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Funcionalidades
 
-## React Compiler
+- Fundo de céu estrelado (Aceternity `StarsBackground` + `ShootingStars`), fixo atrás do conteúdo.
+- Suporte a **PT/EN** com troca manual (botão no header) e detecção automática do idioma do
+  navegador no primeiro acesso — qualquer idioma que não seja português cai em inglês por padrão.
+  A escolha do usuário é persistida em `localStorage` e sempre tem prioridade sobre a detecção.
+- `title`, `meta description` e `<html lang>` trocam dinamicamente junto com o idioma.
+- CV em PDF: um arquivo por idioma, servido automaticamente conforme o idioma ativo.
+- Header fixo com navegação por âncoras e CTA de contato sempre visível.
+- Totalmente responsivo (mobile-first).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Estrutura de pastas
 
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+src/
+├── components/         # Um componente por seção da página
+│   ├── ui/              # Componentes de terceiros (Aceternity)
+│   └── ...
+├── data/                # Conteúdo editável: projetos, skills, navegação, contato
+├── i18n/                # Contexto de idioma + dicionário de traduções (pt/en)
+├── lib/utils.ts         # Utilitário cn() (clsx + tailwind-merge)
+└── App.tsx              # Composição das seções, na ordem de rolagem
 ```
+
+### Onde editar o quê
+
+| Quero mudar...                          | Arquivo                                   |
+| ---------------------------------------- | ------------------------------------------ |
+| Textos fixos de UI (nav, hero, cards, etc.) | `src/i18n/translations.ts`               |
+| Projetos em destaque                     | `src/data/projects.ts`                    |
+| Habilidades / stack                      | `src/data/skills.ts`                      |
+| Links de contato, e-mail, CVs            | `src/data/contact.ts`                     |
+| Itens do menu (âncoras)                  | `src/data/navigation.ts`                  |
+| Aparência de uma seção específica        | `src/components/<Nome>.tsx`               |
+
+## Scripts
+
+```bash
+npm run dev       # servidor de desenvolvimento
+npm run build     # type-check + build de produção (dist/)
+npm run preview   # serve o build de produção localmente
+npm run lint      # ESLint
+```
+
+## Deploy
+
+Projeto pronto para a Vercel com o preset **Vite** (build command `npm run build`, output `dist`).
+Por ser uma SPA de âncoras (sem client-side router), não é necessário nenhum rewrite/`vercel.json`.
