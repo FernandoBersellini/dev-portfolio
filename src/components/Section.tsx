@@ -7,7 +7,6 @@ type SectionProps = {
   title?: string
   children: ReactNode
   className?: string
-  transparent?: boolean
 }
 
 export default function Section({
@@ -16,14 +15,12 @@ export default function Section({
   title,
   children,
   className,
-  transparent = false,
 }: SectionProps) {
   return (
     <section
       id={id}
       className={cn(
         'relative px-6 py-20 sm:py-28',
-        !transparent && 'bg-[#0a0a12]',
         className,
       )}
     >
@@ -31,11 +28,14 @@ export default function Section({
         {(eyebrow || title) && (
           <div className="mb-10">
             {eyebrow && (
-              <p className="mb-2 font-mono text-sm uppercase tracking-widest text-violet-400">
-                {eyebrow}
-              </p>
+              <div className="mb-3 flex items-center gap-3">
+                <span className="ink-rule h-px w-8" />
+                <p className="font-mono text-sm uppercase tracking-widest text-wave">{eyebrow}</p>
+              </div>
             )}
-            {title && <h2 className="text-3xl font-semibold text-white sm:text-4xl">{title}</h2>}
+            {title && (
+              <h2 className="font-serif text-3xl font-semibold text-ink sm:text-4xl">{title}</h2>
+            )}
           </div>
         )}
         {children}

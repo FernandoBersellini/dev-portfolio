@@ -9,7 +9,7 @@ export default function Contact() {
 
   return (
     <Section id="contact" eyebrow={t.eyebrow} title={t.title}>
-      <div className="max-w-2xl space-y-4 text-lg leading-relaxed text-gray-300">
+      <div className="max-w-2xl space-y-4 text-lg leading-relaxed text-text">
         <p>{t.paragraph1}</p>
         <p>{t.paragraph2}</p>
       </div>
@@ -17,21 +17,21 @@ export default function Contact() {
       <div className="mt-8 flex flex-col gap-4 sm:flex-row">
         <a
           href={`mailto:${CONTACT.email}`}
-          className="rounded-lg bg-violet-500 px-6 py-3 text-center font-medium text-white transition-colors hover:bg-violet-400"
+          className="rounded-lg bg-ink px-6 py-3 text-center font-medium text-foam transition-colors hover:bg-ink-soft"
         >
           {t.ctaEmail}
         </a>
       </div>
 
-      <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm text-gray-400">
-        <a href={`mailto:${CONTACT.email}`} className="transition-colors hover:text-violet-300">
+      <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm text-text-muted">
+        <a href={`mailto:${CONTACT.email}`} className="transition-colors hover:text-wave">
           {CONTACT.email}
         </a>
         <a
           href={CONTACT.linkedin}
           target="_blank"
           rel="noreferrer"
-          className="transition-colors hover:text-violet-300"
+          className="transition-colors hover:text-wave"
         >
           LinkedIn
         </a>
@@ -39,7 +39,7 @@ export default function Contact() {
           href={CONTACT.github}
           target="_blank"
           rel="noreferrer"
-          className="transition-colors hover:text-violet-300"
+          className="transition-colors hover:text-wave"
         >
           GitHub
         </a>

@@ -2,27 +2,64 @@
 
 @theme {
   --font-sans: "Space Grotesk", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Shippori Mincho", "Times New Roman", serif;
   --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
 
-  --color-bg: #0a0a12;
-  --color-bg-elevated: #12121e;
-  --color-border: #26263a;
+  /* Hokusai — "A Grande Onda de Kanagawa" palette */
+  --color-paper: #e9dcbe;          /* washi paper background */
+  --color-paper-elevated: #f2e8d1; /* elevated cards */
+  --color-foam: #f8f3e7;           /* wave foam / light text on ink */
+  --color-ink: #143850;            /* Prussian blue — primary brand */
+  --color-ink-soft: #2b5c7a;       /* softer ink for secondary text */
+  --color-wave: #1f6a8c;           /* wave blue accent / links */
+  --color-seal: #b0432e;           /* vermilion artist's seal accent */
+  --color-sand: #b7965a;           /* boat / sand accent */
+  --color-text: #20303c;           /* body text */
+  --color-text-muted: #5a6773;     /* muted text */
+  --color-border: #cdb98d;         /* soft paper border */
 }
 
 html {
   scroll-behavior: smooth;
+  background: var(--color-paper);
 }
 
 body {
   margin: 0;
-  background: var(--color-bg);
-  color: #e5e4ef;
+  color: var(--color-text);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* subtle washi paper grain */
+  background-color: var(--color-paper);
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(20, 56, 80, 0.04) 0, transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(176, 67, 46, 0.03) 0, transparent 45%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Seigaiha — traditional wave-scale pattern used as subtle texture */
+.seigaiha {
+  background-color: transparent;
+  background-image:
+    radial-gradient(circle at 50% 100%, transparent 32%, rgba(20, 56, 80, 0.14) 33%, rgba(20, 56, 80, 0.14) 38%, transparent 39%),
+    radial-gradient(circle at 50% 100%, transparent 22%, rgba(31, 106, 140, 0.12) 23%, rgba(31, 106, 140, 0.12) 27%, transparent 28%),
+    radial-gradient(circle at 50% 100%, transparent 12%, rgba(20, 56, 80, 0.12) 13%, rgba(20, 56, 80, 0.12) 17%, transparent 18%);
+  background-size: 60px 30px;
+  background-position: 0 0, 0 0, 0 0;
+}
+
+.ink-rule {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-ink) 15%,
+    var(--color-ink) 85%,
+    transparent
+  );
 }
 
 ::selection {
-  background: rgba(168, 85, 247, 0.35);
-  color: #fff;
+  background: rgba(31, 106, 140, 0.3);
+  color: var(--color-ink);
 }

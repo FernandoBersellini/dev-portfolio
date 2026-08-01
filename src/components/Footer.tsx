@@ -6,8 +6,8 @@ export default function Footer() {
   const t = translations[lang].footer
 
   return (
-    <footer className="relative border-t border-white/10 bg-[#0a0a12] px-6 py-8 text-center">
-      <p className="text-sm text-gray-500">{t.text}</p>
+    <footer className="relative border-t border-border/70 px-6 py-8 text-center">
+      <p className="text-sm text-text-muted">{t.text}</p>
     </footer>
   )
 }

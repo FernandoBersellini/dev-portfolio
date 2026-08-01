@@ -8,7 +8,7 @@ export default function LanguageToggle() {
       type="button"
       onClick={toggleLang}
       aria-label={lang === 'pt' ? 'Switch to English' : 'Mudar para português'}
-      className="rounded-lg border border-white/10 px-3 py-1.5 font-mono text-xs font-medium text-gray-300 transition-colors hover:border-violet-400/40 hover:text-violet-300"
+      className="rounded-lg border border-border px-3 py-1.5 font-mono text-xs font-medium text-ink transition-colors hover:border-wave/60 hover:text-wave"
     >
       {lang === 'pt' ? 'EN' : 'PT'}
     </button>

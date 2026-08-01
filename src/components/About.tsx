@@ -8,14 +8,14 @@ export default function About() {
 
   return (
     <Section id="about" eyebrow={t.eyebrow} title={t.title}>
-      <div className="space-y-5 text-lg leading-relaxed text-gray-300">
+      <div className="space-y-5 text-lg leading-relaxed text-text">
         {t.paragraphs.map((paragraph, i) => (
           <p key={i}>{paragraph}</p>
         ))}
       </div>
       <a
         href="#projects"
-        className="mt-8 inline-block rounded-lg border border-violet-400/40 px-6 py-3 font-medium text-violet-200 transition-colors hover:bg-violet-500/10"
+        className="mt-8 inline-block rounded-lg border border-ink/40 px-6 py-3 font-medium text-ink transition-colors hover:bg-ink/10"
       >
         {t.cta}
       </a>

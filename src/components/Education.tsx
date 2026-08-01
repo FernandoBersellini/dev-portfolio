@@ -12,14 +12,14 @@ export default function Education() {
         {t.items.map((item) => (
           <div
             key={item.course}
-            className="flex flex-col justify-between gap-2 rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:flex-row sm:items-center"
+            className="flex flex-col justify-between gap-2 rounded-2xl border border-border bg-paper-elevated/70 p-6 shadow-[0_4px_24px_-16px_rgba(20,56,80,0.6)] backdrop-blur-sm sm:flex-row sm:items-center"
           >
             <div>
-              <h3 className="font-semibold text-white">{item.course}</h3>
-              <p className="text-gray-400">{item.institution}</p>
-              <p className="mt-1 font-mono text-sm text-gray-500">{item.period}</p>
+              <h3 className="font-serif font-semibold text-ink">{item.course}</h3>
+              <p className="text-text-muted">{item.institution}</p>
+              <p className="mt-1 font-mono text-sm text-text-muted">{item.period}</p>
             </div>
-            <span className="w-fit rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 font-mono text-xs text-violet-200">
+            <span className="w-fit rounded-full border border-seal/30 bg-seal/10 px-3 py-1 font-mono text-xs text-seal">
               {item.status}
             </span>
           </div>

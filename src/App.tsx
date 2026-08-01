@@ -7,12 +7,12 @@ import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Projects from '@/components/Projects'
 import Skills from '@/components/Skills'
-import StarryBackground from '@/components/StarryBackground'
+import WaveBackground from '@/components/WaveBackground'
 
 function App() {
   return (
     <>
-      <StarryBackground />
+      <WaveBackground />
       <div className="relative z-10">
         <Header />
         <main>
